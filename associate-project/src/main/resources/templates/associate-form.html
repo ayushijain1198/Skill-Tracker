@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Associate</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3> Skill Tracker</h3>
+    <hr>
+
+    <p class="h4 mb-4">Save Associate</p>
+
+    <form action="#" th:action="@{/associates/save}"
+          th:object="${associates}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <h6>Associate ID</h6>
+        <input type="text" th:field="*{associateId}"
+               class="form-control mb-4 col-4" placeholder="Associate ID"/>
+
+        <h6>Associate Name</h6>
+        <input type="text" th:field="*{name}"
+               class="form-control mb-4 col-4" placeholder="Associate Name">
+
+        <h6>Associate Email</h6>
+        <input type="text" th:field="*{email}"
+               class="form-control mb-4 col-4" placeholder="Associate Email">
+
+        <h6>Associate Mobile Number</h6>
+        <input type="text" th:field="*{mobileNumber}"
+               class="form-control mb-4 col-4" placeholder="Mobile Number">
+
+        <h6>Associate Skills</h6>
+        <input type="text" th:field="*{skills}"
+               class="form-control mb-4 col-4" placeholder="Associates Skill">
+        <span th:each="skill : ${associates.skills}">
+            &nbsp;<span th:text="${skill.skill_title}" />
+		</span>
+        <br>
+        <label>Select your Skills: </label>
+        <input list="Skills">
+        <datalist id="Skills">
+            <option>1. Javascript</option>
+            <option>2. Java</option>
+            <option>3. C++</option>
+            <option>4. Python</option>
+            <option>5. Angular</option>
+            <option>6. React</option>
+            <option>7. C</option>
+            <option>8. Machine Learning</option>
+        </datalist>
+        <br>
+        <span></span>
+        <button type="submit" class="btn btn-success col-2">
+            Save
+        </button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/associates/list}">Back to Associates List</a>
+
+</div>
+</body>
+
+</html>
+
+
+
