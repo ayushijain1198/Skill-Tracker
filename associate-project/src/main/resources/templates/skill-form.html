@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Add Skills</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3> Skill Tracker</h3>
+    <hr>
+
+    <p class="h4 mb-4">Add Skills</p>
+
+    <form action="#" th:action="@{/associates/saveskill}"
+          th:object="${skills}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="text" th:field="*{skillId}"
+               class="form-control mb-4 col-4" placeholder="Skill ID"/>
+
+        <input type="text" th:field="*{skill_title}"
+               class="form-control mb-4 col-4" placeholder="Skill Title">
+
+
+        <input type="submit" value="Add skill"/>
+
+
+    </form>
+
+    <hr>
+    <a th:href="@{/associates/list}">Back to Associates List</a>
+
+</div>
+</body>
+
+</html>
+
+
+
